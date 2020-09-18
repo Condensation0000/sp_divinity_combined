@@ -1,3 +1,9 @@
+-- usage:
+-- go into you tribe house
+-- type /lua
+-- copy this entire script into the text box, and click submit
+-- in chat, type !printxml
+-- the XML code will appear in a new chat tab
 xml=''
 
 function eventNewGame()
@@ -22,6 +28,4 @@ function eventChatCommand(name,cmd)
 end
 
 system.disableChatCommandDisplay('printxml')
--- tfm.exec.newGame("@0") --- Put what code you want
--- tfm.exec.newGame("@7602406") --- Put what code you want
 tfm.exec.newGame("@7059638") --- Put what code you want
