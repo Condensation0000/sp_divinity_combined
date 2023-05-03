@@ -434,6 +434,9 @@ end
 -- this function is called whenever a player uses !commands
 function eventChatCommand(playerName,command)
 
+    -- display info
+    printToAll('command ' .. command .. ' was said by ' .. playerName)
+
     -- make sure player is in db before changing their db settings
     addPlayerToLocalDatabase(playerName)
 
@@ -451,7 +454,7 @@ function eventChatCommand(playerName,command)
 
     --set players mode if requested
     elseif args[1] == 'setmode' then
-        if args[2] == 'sp' or args[2] == 'spiritual'  or args[2] == 'normal' or args[2] == 'hard' then
+        if args[2] == 'sp' or args[2] == 'spiritual' or args[2] == 'spr' or args[2] == 'normal' or args[2] == 'hard' then
             database['players'][playerName]['mode'] = 'spiritual'
             tempChatMessage('mode set to spiritual',playerName)
         elseif args[2] == 'div' or args[2] == 'divinity'  or args[2] == 'divine' then
@@ -529,6 +532,9 @@ function setDiff(args,playerName)
             stop  = tonumber(args[2])
         end
 
+    else
+        tempChatMessage('Invalid difficulty',playerName)
+
     end
 
     -- check for valid difficulty
@@ -600,3 +606,4 @@ tfm.exec.disableAutoShaman(true)
 
 -- start the first game
 startNextGame()
+
